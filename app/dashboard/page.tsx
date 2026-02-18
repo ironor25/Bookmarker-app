@@ -20,6 +20,7 @@ export default function DashboardPage() {
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [userId, setUserId] = useState<string | null>(null)
   const router = useRouter()
   const supabase = createClient()
 
@@ -31,7 +32,7 @@ export default function DashboardPage() {
         router.push('/login')
         return
       }
-
+      setUserId(session.user.id)
       // Fetch bookmarks
       await fetchBookmarks()
     }
@@ -58,20 +59,24 @@ export default function DashboardPage() {
   }
 
   useEffect(() => {
+    if (!userId) return
     // Subscribe to realtime changes
     const channel = supabase
       .channel('bookmarks-changes')
       .on(
         'postgres_changes',
-        { event: '*', schema: 'public', table: 'bookmarks' },
+        { event: '*', schema: 'public', table: 'bookmarks',filter: `user_id=eq.${userId}` },
         async (payload: any) => {
           switch (payload.eventType) {
             case 'INSERT':
               setBookmarks((prev) => [payload.new as Bookmark, ...prev])
               break
             case 'DELETE':
-              setBookmarks((prev) => prev.filter((b) => b.id !== payload.old.id))
-              break
+              const deletedId = payload.old?.id;
+              if (deletedId) {
+                setBookmarks((prev) => prev.filter((b) => b.id !== deletedId));
+              }
+              break;
             case 'UPDATE':
               setBookmarks((prev) =>
                 prev.map((b) => (b.id === payload.new.id ? (payload.new as Bookmark) : b))
@@ -85,7 +90,7 @@ export default function DashboardPage() {
     return () => {
       channel.unsubscribe()
     }
-  }, [supabase])
+  }, [supabase,userId])
 
   const handleAddBookmark = async (title: string, url: string) => {
     try {

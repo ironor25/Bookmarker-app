@@ -48,7 +48,7 @@ export function Navbar() {
                     className="w-8 h-8 rounded-full ring-2 ring-teal-400/30"
                   />
                 )}
-                <span className="text-sm text-gray-300 max-w-[200px] truncate">
+                <span className="text-sm text-gray-300 truncate">
                   {user.user_metadata?.full_name || user.email}
                 </span>
               </div>
