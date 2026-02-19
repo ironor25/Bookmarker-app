@@ -28,16 +28,36 @@
 
   /* Smooth glass effect */
   .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    background-color: rgba(255, 255, 255, 0.04);
+    background-image: radial-gradient(
+      circle at 50% 75%,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 138, 0, 0.04) 40%
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  /* Gradient text */
+  /* Orange radial overlay utility */
+  .bg-orange-radial {
+    background-image: radial-gradient(
+      circle at center bottom,
+      rgba(255, 138, 0, 0.18) 0%,
+      rgba(255, 200, 140, 0.08) 25%,
+      rgba(255, 255, 255, 0.02) 60%,
+      transparent 75%
+    );
+    pointer-events: none;
+  }
+
+  /* Gradient text (orange → white) */
   .gradient-text {
-    @apply bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-orange-400 via-orange-300 to-white bg-clip-text text-transparent;
   }
 
-  /* Teal glow shadow */
-  .glow-teal {
-    @apply shadow-lg shadow-teal-500/20;
+  /* Orange glow shadow */
+  .glow-accent {
+    @apply shadow-lg shadow-orange-500/20;
   }
 }

@@ -2,23 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Smart Bookmark",
-  description: "A private, realtime bookmark manager powered by Supabase",
-  icons: {
-    icon: '/favicon.ico',
-  }
-};
 
 export default function RootLayout({
   children,
@@ -28,9 +11,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="relative min-h-screen">
+          <div className="fixed inset-0 pointer-events-none bg-orange-radial" />
+          {children}
+        </div>
       </body>
     </html>
   );

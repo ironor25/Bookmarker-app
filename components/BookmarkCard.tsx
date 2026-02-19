@@ -29,10 +29,10 @@ export function BookmarkCard({ id, title, url, onDelete }: BookmarkCardProps) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:bg-white/10 hover:border-teal-400/30 hover:shadow-lg hover:shadow-teal-500/20 hover:scale-105 animate-fade-in"
+      className="group rounded-2xl relative glass p-6 transition-all duration-300 hover:bg-white/10 hover:border-orange-400/30 hover:shadow-lg hover:shadow-orange-500/20 hover:scale-105 animate-fade-in"
     >
       <div className="space-y-3">
-        <h3 className="font-semibold text-white group-hover:text-teal-300 transition-colors line-clamp-2 text-lg">
+        <h3 className="font-semibold text-white group-hover:text-orange-300 transition-colors line-clamp-2 text-lg">
           {title}
         </h3>
         <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors truncate">

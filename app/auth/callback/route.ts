@@ -5,14 +5,13 @@ import { NextResponse } from 'next/server'
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url)
   const code = searchParams.get('code')
-  // if "next" is in param, use it as the redirect address
   const next = searchParams.get('next') ?? '/'
 
   if (code) {
     const cookieStore = cookies()
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, // or PUBLISHABLE_KEY
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, 
       {
         cookies: {
           async getAll() {
@@ -24,9 +23,7 @@ export async function GET(request: Request) {
                 (await cookieStore).set(name, value, options)
               )
             } catch (error) {
-              // The `setAll` method was called from a Server Component.
-              // This can be ignored if you have middleware refreshing
-              // user sessions.
+             
             }
           },
         },

@@ -127,8 +127,9 @@ export default function DashboardPage() {
     <div className="min-h-screen w-full bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900">
       {/* Background glow effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-teal-500/20 rounded-full blur-3xl opacity-20 animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-3xl opacity-20" />
+        <div className="absolute inset-0 bg-orange-radial" />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-orange-500/12 rounded-full blur-3xl opacity-28" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-orange-500/10 rounded-full blur-3xl opacity-22" />
       </div>
 
       <Navbar />
@@ -137,7 +138,7 @@ export default function DashboardPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-white mb-3 tracking-tight">
-            Smart Bookmarks
+            BookMarker
           </h1>
           <p className="text-gray-400 text-lg">
             Private. Realtime. Simple.

@@ -54,7 +54,7 @@ export function AddBookmarkForm({ onAdd }: AddBookmarkFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 mb-8"
+      className="glass rounded-2xl p-6 mb-8"
     >
       <div className="space-y-4">
         <div>
@@ -67,7 +67,7 @@ export function AddBookmarkForm({ onAdd }: AddBookmarkFormProps) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="e.g., My Favorite Blog"
-            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-teal-400/50 focus:ring-1 focus:ring-teal-400/20 transition-all"
+            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-orange-400/50 focus:ring-1 focus:ring-orange-400/20 transition-all"
             disabled={isLoading}
           />
         </div>
@@ -82,7 +82,7 @@ export function AddBookmarkForm({ onAdd }: AddBookmarkFormProps) {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://example.com"
-            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-teal-400/50 focus:ring-1 focus:ring-teal-400/20 transition-all"
+            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-orange-400/50 focus:ring-1 focus:ring-orange-400/20 transition-all"
             disabled={isLoading}
           />
         </div>
@@ -96,7 +96,7 @@ export function AddBookmarkForm({ onAdd }: AddBookmarkFormProps) {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-gradient-to-r from-teal-400 to-teal-500 hover:from-teal-500 hover:to-teal-600 disabled:opacity-50 disabled:cursor-not-allowed text-slate-900 font-semibold py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 hover:shadow-lg hover:shadow-teal-500/30"
+          className="w-full bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 disabled:opacity-50 disabled:cursor-not-allowed text-slate-900 font-semibold py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 hover:shadow-lg hover:shadow-orange-500/30"
         >
           <Plus size={18} />
           {isLoading ? 'Adding...' : 'Add Bookmark'}

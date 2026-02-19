@@ -43,7 +43,8 @@ export default function LoginPage() {
     <div className="min-h-screen w-full bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 flex items-center justify-center px-4">
       {/* Background glow effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-500/20 rounded-full blur-3xl opacity-30 animate-pulse" />
+        <div className="absolute inset-0 bg-orange-radial" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/12 rounded-full blur-3xl opacity-40" />
       </div>
 
       {/* Content */}
@@ -57,7 +58,7 @@ export default function LoginPage() {
           </p>
         </div>
 
-        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-xl">
+        <div className="glass rounded-2xl p-8 shadow-xl">
           <p className="text-gray-300 text-center mb-6 text-sm">
             Sign in with Google to get started
           </p>
@@ -65,7 +66,7 @@ export default function LoginPage() {
           <button
             onClick={handleGoogleSignIn}
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-teal-400 to-teal-500 hover:from-teal-500 hover:to-teal-600 disabled:opacity-50 disabled:cursor-not-allowed text-slate-900 font-semibold py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 hover:shadow-lg hover:shadow-teal-500/30"
+            className="w-full bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 disabled:opacity-50 disabled:cursor-not-allowed text-slate-900 font-semibold py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 hover:shadow-lg hover:shadow-orange-500/30"
           >
             <Chrome size={20} />
             {isLoading ? 'Signing in...' : 'Sign in with Google'}

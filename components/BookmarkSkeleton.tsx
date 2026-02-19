@@ -1,6 +1,6 @@
 export function BookmarkSkeleton() {
   return (
-    <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 animate-pulse">
+    <div className="glass rounded-2xl p-6 animate-pulse">
       <div className="space-y-3">
         <div className="h-6 bg-white/10 rounded-lg w-3/4" />
         <div className="h-4 bg-white/10 rounded-lg w-1/2" />
